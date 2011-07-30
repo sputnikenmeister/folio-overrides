@@ -12,7 +12,7 @@ Class extension_folio_overrides extends Extension
 	public function about()
 	{
 		return array('name' => 'Portfolio Overrides',
-				   'version' => '0.1.1',
+				   'version' => '0.1.2',
 				   'release-date' => '2011-07-01',
 				   'author' => array('name' => 'Pablo Canillas',
 					  'website' => 'http://localhost/',
@@ -24,15 +24,20 @@ Class extension_folio_overrides extends Extension
 	public function getSubscribedDelegates() {
 		return array(
 			array(
-				'page' => '/system/preferences/',
+				'page'     => '/system/preferences/',
 				'delegate' => 'AddCustomPreferenceFieldsets',
 				'callback' => '__appendPreferences'
 			),
 			array(
-				'page' => '/backend/',
-				'delegate' => 'AdminPagePreGenerate',
+				'page'     => '/backend/',
+				'delegate' => 'InitaliseAdminPageHead',
 				'callback' => '__appendAssets'
 			),
+			//array(
+			//	'page' => '/backend/',
+			//	'delegate' => 'AdminPagePreGenerate',
+			//	'callback' => '__appendAssets'
+			//),
 		);
 	}
 	
@@ -59,12 +64,11 @@ Class extension_folio_overrides extends Extension
 	 */
 	public function __appendAssets($context)
 	{
-		$callback = Symphony::Engine()->getPageCallback();
-		
+		// Stylesheet is global, no need to check the context
+		//$callback = Symphony::Engine()->getPageCallback();
+		//if(is_array($callback['context']))
 		// Append additional stylesheet
-		if(is_array($callback['context'])) {
-			Administration::instance()->Page->addStylesheetToHead(URL . Symphony::Configuration()->get('additional-backend-css', 'folio-overrides'), 'screen', 3466715, false);
-		}
+		Administration::instance()->Page->addStylesheetToHead(URL . Symphony::Configuration()->get('additional-backend-css', 'folio-overrides'), 'screen', 999999, false);
 	}
 
 	public function __appendPreferences($context)
