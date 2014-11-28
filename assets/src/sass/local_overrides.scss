@@ -1,14 +1,16 @@
-/* @override http://folio.localhost/workspace/assets/css/symphony.css */
-
 // Color palette
 // -------------------------------- //
 
 	$focus-color: #5273c0;//hsl(221,46%,53%);
 	$focus-background-color: #e9effc;
 
+// Imports
+// -------------------------------- //
 
-/* Form Controls
-/* -------------------------------- */
+	// @import "_local_overrides.field-association";
+
+// Form Controls
+// -------------------------------- //
 
 	// select[multiple],
 	// input[type="text"],
@@ -65,63 +67,3 @@
 		background-color: $focus-background-color;
 	}
 
-/* Association fields
-/* -------------------------------- */
-
-	/* published yes/no */
-
-	.field-association {
-		// span.published-Yes {
-		// }
-		span.published-No {
-			color: hsl(0, 0%, 70%);
-			// font-weight: bolder;
-			// font-style: italic;
-			// text-decoration: line-through;
-
-			// &:after {
-			// 	content: "(Unpublished)";
-			// 	font-weight: bolder;
-			// 	padding-left: 0.6em;
-			// }
-		}
-	}
-
-	// .page-index td.field-selectbox_link,
-	.page-index td.field-association {
-		// position: relative;
-		color: transparent;
-		line-height: 0;
-
-		a {
-			line-height: 1.5em;
-			padding: 0; margin: 0;
-			border-bottom: 0 none;
-			display: block;
-			min-width: none;
-			white-space: nowrap;
-			overflow: hidden;
-			text-overflow: ellipsis;
-
-			.published-Yes {
-				border-bottom: 1px solid hsla(215, 45%, 45%, 0.15);
-			}
-			.published-No {
-				border-bottom: 1px solid hsla(0, 0%, 70%, 0.25);
-			}
-		}
-	}
-
-	.page-edit .field-association {
-		span.published-Yes,
-		span.published-No {
-			// display: inline-block !important;
-			padding: 0 !important;
-			min-width: none;
-			white-space: nowrap;
-			overflow: hidden;
-			text-overflow: ellipsis;
-		}
-	}
-
-/* FINISTERRE ---------------------- */
