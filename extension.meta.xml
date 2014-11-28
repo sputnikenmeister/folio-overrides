@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<extension id="local_overrides" status="released" xmlns="http://symphony-cms.com/schemas/extension/1.0">
+	<name>Local Overrides</name>
+	<description lang="en">Local overrides that cannot be done in the workspace.</description>
+	<types>
+		<type>Workflow</type>
+		<type>Interface</type>
+	</types>
+	<authors>
+		<author>
+			<name>Pablo Canillas</name>
+		</author>
+	</authors>
+	<releases>
+		<release version="0.1" date="2014-09-21" min="2.4" max="2.5.x" />
+	</releases>
+</extension>

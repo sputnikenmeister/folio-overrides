@@ -1,0 +1,906 @@
+/* @override http://folio24.localhost/workspace/assets/css/symphony.local_overrides.css */
+
+/*  Color palette
+ *	Hover: blue #5273C0; hsl(221,46%,53%)
+ */
+
+/* @group Global Overrides							 
+/* -------------------------------- */
+
+	h2 {
+		padding: 0.4em 0 0.8em;
+	}
+	th {
+		color: #666;
+	}
+	td {
+		vertical-align: text-top;
+	}
+	.file, code, pre, tt {
+		font-family: monaco, 'andale mono', menlo, consolas, monospace;
+	}
+	code {
+		font-size: inherit;
+		line-height: normal;
+	}
+	i, var, .inactive, .inactive * {
+		color: #aaa;
+		text-decoration: none;
+	}
+	legend {
+		color: #666;
+		text-shadow: none;
+	}
+/* @end */
+
+/* @group Form Controls							 
+/* -------------------------------- */
+
+	label > select:not([multiple]) {
+	}
+
+	select[multiple],
+	input[type="text"],
+	input[size],
+	textarea {
+		border:	1px solid hsla(0, 0%, 50%, 0.6);
+		-webkit-border-radius: 3px;
+		   -moz-border-radius: 3px;
+		        border-radius: 3px;
+	}
+	label > select[multiple],
+	label > input[type="text"],
+	label > input[size],
+	label > textarea {
+	    -webkit-box-shadow: 0.05em 0.1em 0.2em hsla(0, 0%, 0%,0.08) inset;
+	       -moz-box-shadow: 0.05em 0.1em 0.2em hsla(0, 0%, 0%,0.08) inset;
+	            box-shadow: 0.05em 0.1em 0.2em hsla(0, 0%, 0%,0.08) inset;
+	}
+	label > input[type="text"],
+	label > input[size],
+	label > textarea {
+	    padding: 0.4em;
+	}
+	
+	select[multiple],
+	label > select[multiple] {
+		padding: 0;
+	}
+	select[multiple] option,
+	label > select[multiple] option {
+		padding: 0.05em 0.4em;
+	}
+	
+	label > input[type="checkbox"] {
+		top: auto;
+	}
+	/* focus: text inputs */
+	.field-date select:focus,
+	.field-textarea textarea:focus,
+	.field label > input[type="text"]:focus {
+		border-color: #5273C0;
+	}
+	::selection {
+		color: #5273C0;
+		background-color: #e9effc;
+	}
+	::-moz-selection {
+		color: #5273C0;
+		background-color: #e9effc;
+	}
+/* @end */
+
+/* @group Buttons							 
+/* -------------------------------- */
+
+	button,
+	input[type="button"],
+	input[type="submit"],
+	input[type="reset"] {
+		color: #444;
+		padding: 2px 8px;
+		margin: 0 2px;
+		font-weight: bold;
+		line-height: 1.2;
+		background: none hsl(0, 0%, 100%);
+		border: 0 none;
+		-webkit-border-radius: 2px;
+		   -moz-border-radius: 2px;
+		        border-radius: 2px;
+	} 
+	button:not(.button) {
+		-webkit-box-shadow: 0 0 1px #000, 0 2px 4px -1px hsla(0,0%,0%,0.4);
+		   -moz-box-shadow: 0 0 1px #000, 0 2px 2px -1px hsla(0,0%,0%,0.4);
+		        box-shadow: 0 0 1px #000, 0 2px 4px -1px hsla(0,0%,0%,0.4);
+	}
+	
+	input[type="submit"],
+	input[type="button"],
+	input[type="reset"],
+	a.button,
+	div.button,
+	button,
+	button.button {
+		font-size: 11px;
+		font-weight: normal;
+		line-height: 1.4 !important;
+		height: auto;
+	}
+	input[type="submit"],
+	input[type="button"],
+	input[type="reset"],
+	a.button,
+	div.button,
+	button.button {
+		margin-top:-0.25em;
+		padding: 1px 8px 2px !important;
+		display: inline-block;
+		border: 1px solid hsla(0, 0%, 0%, 0.3);
+		-webkit-border-radius: 3px;
+		   -moz-border-radius: 3px;
+		        border-radius: 3px;
+	}
+	.inline.subsection input[type="submit"],
+	.inline.subsection input[type="button"],
+	.inline.subsection input[type="reset"],
+	.inline.subsection .button {
+		border-color: hsla(0, 0%, 100%, 0.3);
+	}
+	
+	input[type="submit"],
+	input[type="button"],
+	input[type="reset"],
+	div.button > span:first-child,
+	a.button, button.button {
+		font-weight: bold;
+/*		background-color: hsl(222, 40%, 65%);*/
+/*		background-color: hsl(0, 0%, 50%);*/
+		text-shadow: 0 1px 1px hsla(0, 0%, 0%,0.5);
+	}
+	/* up states */
+	input[type="submit"],
+	input[type="button"],
+	input[type="reset"],
+	a.button,
+	a.button.delete,
+	a.button.create,
+	button.button,
+	button.button.delete,
+	button.button.create {
+		-webkit-appearance: none;
+		   -moz-appearance: none;
+		        appearance: none;
+		background-color: hsl(0, 0%, 50%);
+		color: hsl(0, 0%, 100%);
+	}
+	a.button.active,
+	button.button.active, 
+	input[type="submit"].active,
+	a.button:hover,
+	button.button:hover,
+	input[type="submit"]:hover	{
+		cursor: pointer;
+		background-color: hsl(222, 45%, 55%);
+	    color: hsl(0, 0%, 100%);
+	}
+	a.button.create:hover,
+	button.button.create:hover {
+		background-color: hsl(85, 56%, 46%);
+	}
+	a.button.delete:hover,
+	button.button.delete:hover {
+		background-color: hsl(5, 71%, 53%);
+	}
+	
+	/*for FireFox*/
+    input[type="submit"]::-moz-focus-inner,
+    input[type="button"]::-moz-focus-inner,
+    input[type="reset"]::-moz-focus-inner {   
+        border: 0px;
+    }
+    
+    input[type="reset"]:focus,
+    input[type="button"]:focus,
+    input[type="submit"]:focus,
+	input[type="text"]:focus,
+	button:focus, button:active,
+	option:focus, option:active,
+	textarea:focus, textarea:active {
+		outline: none !important;
+    }
+
+	/* subsection iframe: stage buttons */
+	.inline.subsection a.button, .inline.subsection button.button
+	{
+		border: 1px solid hsla(0,0%,100%,0.3);
+	}
+	
+/* @end */
+
+/* @group .select-button
+/* -------------------------------- */
+	.button.select-button {
+		background: #808080;
+		padding: 3px 10px;
+		border-radius: 4px;
+		cursor: pointer;
+	}
+	.button.select-button:hover,
+	.button.select-button.active {
+		margin-bottom: -4px;
+		padding-bottom: 4px;
+/*		background-color: hsl(221, 46%, 53%);*/
+		background-color: hsl(85, 56%, 46%);
+	}
+	.button.select-button:hover {
+		border-radius: 4px 4px 0 0;
+	}
+	
+	/* html dropdown: list */
+	.select-button ul {
+		background-color: hsl(0, 0%, 100%);
+		margin-right: -1px;
+		margin-top: 1px;
+		-webkit-border-radius: 4px 0 4px 4px;
+		   -moz-border-radius: 4px 0 4px 4px;
+		        border-radius: 4px 0 4px 4px;
+		-webkit-box-shadow: 0 4px 5px hsla(0, 0%, 0%,0.3);
+		   -moz-box-shadow: 0 4px 5px hsla(0, 0%, 0%,0.3);
+		        box-shadow: 0 3px 5px hsla(0, 0%, 0%,0.3);
+	}
+	
+	/* html dropdown: list-item */
+	.select-button ul li {
+		color: #333;
+		background-color: transparent;
+		line-height: 1.8;
+		border-width: 1px;
+		border-style: solid;
+		border-color: hsla(0,0%,0%,0.05) hsla(0,0%,0%,0.3);
+		padding: 2px 12px 2px 8px;
+		margin: -1px 0 0 0;
+	}
+	.select-button ul li:hover {
+		color: hsl(0,0%,100%);
+		background-color: hsl(85, 56%, 46%);
+	}
+	.select-button ul li:first-child {
+		border-top-left-radius: 3px;
+		border-top-color: hsla(0,0%,0%,0.3);
+	}
+	.select-button ul li:last-child {
+		border-bottom-color: hsla(0,0%,0%,0.3);
+		border-bottom-left-radius: 3px;
+		border-bottom-right-radius: 3px;
+		line-height: 1.9;
+	}
+/* @end */
+
+/* @group #header							 
+/* -------------------------------- */
+	#header {
+		color: white;
+		background: rgb(0,0,0); /* Old browsers */
+		background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,0,0,1)), color-stop(99%,rgba(69,72,77,1)));
+		background: -webkit-linear-gradient(top, rgba(0,0,0,1) 0%, rgba(69,72,77,1) 99%);
+		background:    -moz-linear-gradient(top, rgba(0,0,0,1) 0%, rgba(69,72,77,1) 99%);
+		background:     -ms-linear-gradient(top, rgba(0,0,0,1) 0%, rgba(69,72,77,1) 99%);
+		background:      -o-linear-gradient(top, rgba(0,0,0,1) 0%, rgba(69,72,77,1) 99%);
+		filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#000000', endColorstr='#45484d',GradientType=0 );
+		background:         linear-gradient(top, rgba(0,0,0,1) 0%, rgba(69,72,77,1) 99%);
+	}
+	#header h1 {
+		font: italic normal 104%/2 "Times New Roman", Times, serif;
+		letter-spacing: 0.75ex;
+		text-transform: uppercase;
+		padding: 1em 19px 0.3em;
+		text-shadow: none;
+		color: #ccc;
+	}
+	#header h1 a,
+	#header h1 a:hover {
+		color: inherit;
+	}
+	
+/* @end */
+
+/* @group #nav: Navigation Top Level							 
+/* -------------------------------- */
+	#nav {
+		font-size: 110%;
+		line-height: 1;
+		font-weight: normal;
+		text-transform: capitalize;
+		background-color: transparent;
+		background-image: none;
+		bottom: auto;
+		padding: 0 19px;
+		margin: 0;
+	}
+	#nav ul {
+		font-size: 100%;
+		line-height: 1;
+		background: hsl(0, 0%, 100%);
+		border: 0 none transparent;
+		-webkit-border-radius: 0 4px 4px 4px;
+		   -moz-border-radius: 0 4px 4px 4px;
+		        border-radius: 0 4px 4px 4px;
+		-webkit-box-shadow: 0 4px 6px hsla(0, 0%, 0%,0.25);
+		   -moz-box-shadow: 0 4px 6px hsla(0, 0%, 0%,0.25);
+		        box-shadow: 0 4px 6px hsla(0, 0%, 0%,0.25);
+	}
+	#nav a:hover {
+		color: hsl(0, 0%, 100%);
+		background-color: hsl(221, 46%, 53%);
+	}
+	#nav > li {
+		color: #ddd;
+		background-color: transparent;
+		background-image: none !important;
+		text-shadow: none;
+		height: auto;
+		line-height: normal;
+		margin:0 3px 0 0;
+		padding: 5px 10px;
+		border: 0 none;
+		-webkit-border-radius: 2px 2px 0 0;
+		   -moz-border-radius: 2px 2px 0 0;
+		     -o-border-radius: 2px 2px 0 0;
+		        border-radius: 2px 2px 0 0;
+	}
+	#nav > li.active {
+		color: hsl(0, 0%, 20%);
+		background-color: hsl(0, 0%, 100%);
+	}
+	#nav > li:hover,
+	#nav > li.active:hover {
+		color: hsl(0, 0%, 100%);
+		background-color: hsl(221, 46%, 53%);
+	}
+/* @end */
+
+/* @group #nav
+/* -------------------------------- */
+	#nav li:hover ul,
+	#nav li.current ul {
+		left: 0;
+	}
+	#nav ul > li {
+		background: transparent;
+	}
+	#nav ul > li a {
+		font-size: 100%;
+		font-weight: normal;
+		padding: 7px 10px;
+		margin: -1px 0 0 0;
+		border-width: 1px;
+		border-style: solid;
+		border-color: hsla(0, 0%, 0%,0.05) hsla(0, 0%, 0%,0.4);
+	}
+	#nav ul > li a:hover {
+		border-color: hsl(221, 40%, 39%);
+	}
+	#nav ul > li:first-child a {
+		border-top-color: hsla(0, 0%, 0%,0.4);
+		border-top-right-radius: 3px;
+	}
+	#nav ul > li:last-child a {
+		border-bottom-color: hsla(0, 0%, 0%,0.4);
+		border-bottom-left-radius: 3px;
+		border-bottom-right-radius: 3px;
+	}
+/* @end */
+
+/* @group #footer	 
+/* -------------------------------- */
+	#footer {
+		background: none;
+		text-shadow: 0 0 0;
+	}
+	#version {
+		color: #aaa;
+	}
+	#usr a {
+		color: #aaa;
+	}
+	#usr a:hover {
+		color: #5273C0;
+		text-decoration: underline;
+	}
+/* @end */
+
+/* @group checkbox							 
+/* -------------------------------- */
+.secondary div.field-checkbox > label {
+	background: none rgba(127,127,127,0.15);
+	border: 1px solid rgba(127,127,127,0.4);
+	line-height: normal;
+	margin-top: 3em;
+	padding: 0.7em;
+}
+.secondary div.field-checkbox > label > input[type=checkbox] {
+	display: inline;
+	position: static;
+	vertical-align: middle;
+}
+/* @end */
+
+/* @group .field-subsectionmanager							 
+/* -------------------------------- */
+	div.field-subsectionmanager div.stage li {
+		padding: 7px 0;
+	}
+	div.field-subsectionmanager div.stage li.new,
+	div.field-subsectionmanager div.stage li.drawer {
+		padding: 0;
+	}
+	div.field-subsectionmanager div.stage li.preview {
+		min-height: 42px;
+	}
+	div.field-subsectionmanager div.stage li > span,
+	div.field-subsectionmanager div.stage li.preview > span,
+	div.field-subsectionmanager div.stage li.preview a.file,
+	div.field-subsectionmanager div.stage li.preview img {
+		display: inline;
+	}
+	div.field-subsectionmanager div.stage li.preview > span,
+	div.field-subsectionmanager div.stage li.preview a.file,
+	div.dragger a.file {
+		margin: 0 0 0 50px;
+	}
+	div.field-subsectionmanager div.stage li.preview img {
+		margin: 7px;
+		top: 0; left: 0;
+	}
+	
+	div.field-subsectionmanager div.stage li > span > span {
+		margin: 0;
+		padding: 0
+	}
+	
+	/* close button */
+	div.field-subsectionmanager div.stage ul li a.destructor {
+		font-weight: bold; 
+		background-color: #bbb;
+		border-color: #999;
+		font-size: 11px;
+		height: 11px;
+		width: 11px;
+		line-height: 0.54;
+	}
+	
+	/* published yes/no */
+/*	div.field-subsectionmanager div.stage ul li span.published-No,*/
+	div.field-subsectionmanager div.stage ul li span.published-Yes {
+		background: none transparent;
+		margin: 0; padding: 0; min-height: 0;
+	}
+/*	div.field-subsectionmanager div.stage ul li span.published-No:after,*/
+	div.field-subsectionmanager div.stage ul li span.published-Yes:after {
+/*		text-transform: uppercase;*/
+		font: normal normal 10px/10px "Lucida Grande", "Lucida Sans", sans-serif;
+		vertical-align: baseline;
+		-webkit-border-radius: 2px;
+		   -moz-border-radius: 2px;
+		        border-radius: 2px;
+		display: block;
+		position: absolute;
+		padding: 2px 3px 2px;
+		margin: 0;
+		right: 40px;
+		height: 10px;
+		top: 7px;
+	}
+	div.field-subsectionmanager div.stage ul li span.published-Yes:after {
+		content: "Published";
+		border: 1px solid hsl(0, 0%, 75%);
+		color: hsl(0, 0%, 50%);
+/*		color: hsl(0, 0%, 100%);*/
+/*		background-color: hsl(0, 0%, 70%);*/
+	}
+/*	div.field-subsectionmanager div.stage ul li span.published-No:after {
+		content: "Unpublished";
+		border: 1px solid hsl(0, 0%, 70%);
+		color: hsl(0, 0%, 60%);
+	}*/
+	/* simple character styles */
+	div.field-subsectionmanager div.stage li.preview a.file {
+/*		font: 12px/normal Consolas, "Andale Mono", monospace;*/
+		color: hsl(0, 0%, 50%);
+		padding: 7px;
+		padding-left: 14px;
+	}
+	div.field-subsectionmanager div.stage div.queue li:nth-child(2n) {
+		background-color: #fafafa;
+	}
+/* @end */
+
+/* @group calendar-overlay	 
+ * --------------------------------
+ *
+ * sel-color:	hsl(0, 0%, 100%)
+ * sel-bg:		#5677C3
+ * sel-brdr:	#617dc5
+ * odd-color:	#222
+ * odd-bg:		#F5F5F4
+ * odd-brdr:	#E6E6E5
+ * grey substitution: E6E6E5->E5E5E5, C5C4C2->c3c3c3, FCFCFB
+ */
+	.field-date div.calendar-overlay {
+		background: none transparent;
+		color: inherit;
+		margin: -1.25em 0;
+		padding: 1.75em 0 0 0;
+		border-top: 1px solid #ddd;
+	}
+	.field-date div.calendar-overlay .date-cal table {
+		border-spacing: 0;
+		border-collapse: separate;
+		background: none transparent;
+		color: inherit;
+	}
+	/* head */
+	.field-date div.calendar-overlay .date-cal table thead {
+		
+	}
+	.field-date div.calendar-overlay .date-cal table thead td {
+		color: #808080;
+		text-transform: uppercase;
+		font: 800 85%/1.5 'lucida grande', 'lucida sans', lucida, tahoma, sans-serif; /* font */
+		cursor: default !important;
+		padding: 0 0 0.5em;
+	}
+	/* body */
+	.field-date div.calendar-overlay .date-cal table tbody {
+		
+	}
+	.field-date div.calendar-overlay .date-cal table tbody tr td {
+		font: 800 100%/1.5 'helvetica neue', arial, sans-serif; /* font */
+	/*	border: 1px none transparent;*/
+	}
+	.field-date div.calendar-overlay .date-cal table tbody tr {
+	/*	border-left: 1px solid #e5e5e5; */
+	}
+	.field-date div.calendar-overlay .date-cal table tbody tr:first-child td {
+		border-top: 2px solid #e5e5e5;
+	}
+	.field-date div.calendar-overlay .date-cal table tbody tr:last-child td {
+		border-bottom: 1px solid #e5e5e5;
+	}
+	.field-date div.calendar-overlay .date-cal table tbody tr td:first-child {
+		border-left: 2px solid #e5e5e5;
+	}
+	.field-date div.calendar-overlay .date-cal table tbody tr td:last-child {
+		border-right: 1px solid #e5e5e5;
+	}
+	.field-date div.calendar-overlay .date-cal table tbody tr td.odd {
+		background: #f4f4f4;
+	}
+	.field-date div.calendar-overlay .date-cal table tbody tr td.even {
+		background: #fcfcfc;
+	}
+	.field-date div.calendar-overlay .date-cal table tbody tr td a {
+		/*	border-top: 1px solid transparent !important;*/
+		/*	border-left: 1px solid transparent !important;*/
+		border-right: 1px solid #e5e5e5;
+		border-bottom: 1px solid #e5e5e5;
+		color: #222;
+		cursor: hand !important;
+		padding: 4px 0;
+		top: -1px;
+		left: -1px;
+	}
+	
+	/* sun and sat bg */
+	.field-date div.calendar-overlay .date-cal table tbody td:first-child a,
+	.field-date div.calendar-overlay .date-cal table tbody td:last-child a {
+		color: #999;
+	}
+	.field-date div.calendar-overlay .date-cal table tbody td.last-month a,
+	.field-date div.calendar-overlay .date-cal table tbody td.next-month a {
+		background: hsl(0, 0%, 100%);
+		color: #ccc;
+	}
+	.field-date div.calendar-overlay .date-cal table tbody td a:hover {
+		background: #E1E7F5;
+		border: 1px solid #617dc5 !important;
+		color: #617dc5 !important;
+	}
+	.field-date div.calendar-overlay .date-cal table tbody td.today a {
+		background: #808080;
+		border: 1px solid #333 !important;
+		color: hsl(0, 0%, 100%) !important;
+		font-weight: bold;
+	}
+	.field-date div.calendar-overlay .date-cal table tbody td.today a:hover {
+		color: hsl(0, 0%, 100%) !important;
+		border-color: #617dc5 !important;
+		background: #5677C3;
+	}
+	.field-date div.calendar-overlay .date-inner .date-input input[type=text] {
+		background-color: hsl(0, 0%, 100%);
+		border-color: hsla(0, 0%, 0%,0.3) !important;
+		padding: 0.4em;
+		color: #222;
+	}
+	
+	.field-date div.calendar-overlay .date-inner .date-input input[type=text]:focus {
+		border-color: #5273C0 !important;
+	}
+/* @end */
+
+/* @group Published Images
+/* -------------------------------- */
+
+	#published-images {
+		white-space: nowrap;
+		overflow: auto;
+		display: block;
+	}
+	#published-images .placeholder,
+	#published-images img {
+		padding: 0;
+		margin: 0;
+		width: 240px;
+		height: 180px;
+	}
+	#published-images img {
+		border: 0 none;
+	}
+	#published-images .placeholder {
+		border: 1px dotted;
+	}
+/* @end */
+
+/* @group File Manager
+/* -------------------------------- */
+	.index .create-menu {
+		margin: -2.15em 19px 0 0;
+	}
+/* @end */
+
+/* @group TinyMCE
+/* -------------------------------- */
+	.field-textarea .symphonySkin .mceLayout {
+	/*	max-width: 680px; */
+		width: 100% !important;
+	}
+	.field-textarea .symphonySkin .mceToolbar {
+		padding: 0.4em 0;
+	}
+	
+	.field-textarea .symphonySkin .mceToolbar,
+	.field-textarea .symphonySkin .mceLayout {
+		background-color: transparent;
+		border-width: 0 !important;
+		margin: 0;
+	}
+	
+	.field-textarea .symphonySkin table,
+	.field-textarea .symphonySkin .mceToolbar td {
+		background-color: transparent;
+	}
+	
+	.field-textarea .symphonySkin .mceIframeContainer {
+		padding: 1px;
+		margin: 0;
+		border: 1px solid #ccc !important;
+		-webkit-border-radius: 4px;
+		   -moz-border-radius: 4px;
+		        border-radius: 4px;
+		-webkit-box-shadow: 0.05em 0.1em 0.2em hsla(0, 0%, 0%,0.08) inset;
+		   -moz-box-shadow: 0.05em 0.1em 0.2em hsla(0, 0%, 0%,0.08) inset;
+		        box-shadow: 0.05em 0.1em 0.2em hsla(0, 0%, 0%,0.08) inset;
+	}
+	.field-textarea .symphonySkin .mceSeparator {
+		width: 1px;
+		background: none #DDD;
+	}
+	.field-textarea .symphonySkin .mceButton {
+		border: 1px solid transparent;
+	}
+	.symphonySkin .mceListBoxMenu {
+		-webkit-box-shadow: 0 4px 6px hsla(0, 0%, 0%,0.25);
+		   -moz-box-shadow: 0 4px 6px hsla(0, 0%, 0%,0.25);
+		        box-shadow: 0 4px 6px hsla(0, 0%, 0%,0.25);
+	}
+/* @end */
+
+/* @group .settings
+/* -------------------------------- */
+	fieldset.settings .duplicator fieldset {
+		border-top: 1px solid hsl(0, 0%, 100%);
+	}
+	fieldset.settings .duplicator fieldset legend {
+		color: #999;
+		font-weight: bold;
+		background: transparent none;
+	}
+	fieldset.settings fieldset legend {
+		color: #999;
+		font-weight: bold;
+		padding-left: 0;
+		margin-left: 0;
+	}
+/* @end */
+
+/* @group .duplicator
+/* -------------------------------- */
+	.duplicator {
+		border: 0 none;
+		background-color: #eee;
+		box-shadow: 0 0 1px 0px #666, 0 2px 2px -1px hsla(0,0%,0%,0.5);
+	}
+	.duplicator > .controls {
+		border: none;
+		border-top: 1px solid hsl(0, 0%, 100%);
+		background-color: hsl(0,0%,98%);
+		background-image: url("../images/diagonal.svg");
+		background-repeat: repeat;
+		background-attachment: scroll;
+	}
+	.duplicator > .instance {
+		border-top: none;
+	}
+	.duplicator > .instance,
+	.duplicator > .instance.collapsed,
+	.duplicator > .controls.top {
+		border-bottom: 1px solid #bbb;
+	}
+	.duplicator > .instance > .header {
+		color: hsl(0, 0%, 0%);
+		border-top: 1px solid hsl(0, 0%, 100%);
+		border-bottom: 0 none;
+	}
+	.duplicator > .instance,
+	.duplicator > .instance > .header,
+	.duplicator > .instance > .content {
+		background-color: transparent;
+	}
+	.help,
+	.duplicator > .instance i {
+		color: #777;
+	}
+/* @end */
+	
+/* @group Section edit buttons
+/* -------------------------------- */
+
+	.duplicator > .instance > .header i {
+		color: #777 !important;
+	}
+	.duplicator > .controls > .constructor,
+	.duplicator > .instance > .header .destructor,
+	.duplicator.collapsible > .controls > .collapser {
+		text-shadow: none;
+		color: #444;
+		opacity: 0.7;
+	}
+	.duplicator > .controls > .constructor:hover,
+	.duplicator > .instance > .header .destructor:hover,
+	.duplicator.collapsible > .controls > .collapser:hover {
+/*		text-decoration: underline;*/
+		color: #222;
+		opacity: 1;
+	}
+	.collapser.disabled,
+	.destructor.disabled,
+	.constructor.disabled {
+		opacity: 0.3;
+	}
+	.duplicator > .instance > .header .destructor {
+		background: url('../images/rm.svg') no-repeat scroll right center transparent;
+		background-size: auto 1.3em;
+		background-origin: border-box;
+		display: inline-block;
+		padding-right: 1.75em;
+		margin-right: 1.5em;
+	}
+/* @end */
+
+/* @group Publish
+/* -------------------------------- */
+
+body.publish-tabs h2 {
+	font: 250%/1 "Times New Roman", Times, serif;
+	padding: 0 0 0.5em;
+	text-indent: -2px;
+	letter-spacing: -0.75pt;
+}
+/* @end */
+
+/* @group Datasource Editor
+/* -------------------------------- */
+
+#blueprints-datasources .settings input[name="fields[max_records]"],
+#blueprints-datasources .settings input[name="fields[page_number]"] {
+	width: 12em;
+}
+ul#publish-tabs-controls {
+	background: none;
+	margin-right: 0;
+	margin-left: 0;
+	padding-right: 0;
+	padding-left: 0;
+}
+/* @end */
+
+/* @group Dashboard
+/* -------------------------------- */
+
+	#extension-dashboard-index #header h1 {
+		visibility: hidden;
+	}
+	#extension-dashboard-index h2 {
+		padding-left: 21px;
+		padding-right: 19px;
+		color: transparent;
+		box-shadow: none;
+		border-bottom: 0 none;
+	}
+	#extension-dashboard-index h2:before {
+	    content: "Portfolio";
+	    color: #333;
+	}
+	#dashboard {
+		padding: 0 10px;
+	}
+	#dashboard .panel {
+		border-radius: 0;
+		border: 0 none;
+		background: none transparent;
+	}
+	#dashboard .panel h3 {
+		font-weight: bold;
+		background: none transparent;
+		border: 0 none;
+		border-radius: 0;
+		border-top: 1px solid #aaa;
+		padding: 0.5em 0;
+	}
+	#dashboard .panel-inner {
+		background: none transparent;
+		padding: 1em 0;
+		border-radius: 0;
+		position: relative;
+	}
+	#dashboard .panel-inner td.textarea {
+		white-space: nowrap;
+	}
+	#dashboard .panel-inner td:last-child {
+		white-space: nowrap;
+		overflow: hidden;
+	}
+	
+/* @end */
+
+/* @group Page Specific
+/* -------------------------------- */
+
+#system-extensions table {
+	position: relative;
+	border-collapse: collapse;
+}
+
+#system-extensions tr > td:nth-child(4n) {
+	text-transform: capitalize;
+}
+/* @end */
+
+/* @group Misc
+/* -------------------------------- */
+
+body.index table td.upload {
+	vertical-align: top;
+}
+ul.tags {
+	color: #666;
+}
+ul.tags li {
+	white-space: nowrap;
+}
+/* @end */
+
+
+/* FINISTERRE ---------------------- */
+

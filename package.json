@@ -1,0 +1,15 @@
+{
+  "name": "folio-local_overrides",
+  "version": "0.1.0",
+  "private": true,
+  "devDependencies": {
+    "grunt": "~0.4.5",
+    "grunt-autoprefixer": "~1.0.1",
+    "grunt-contrib-compass": "~1.0.1",
+    "grunt-contrib-jshint": "~0.10.0",
+    "grunt-contrib-uglify": "^0.6.0",
+    "grunt-contrib-watch": "^0.6.1",
+    "grunt-fontello": "^0.1.3",
+    "fontello-cli": "^0.3.0"
+  }
+}
