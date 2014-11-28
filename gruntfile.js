@@ -2,15 +2,13 @@
 module.exports = function (grunt) {
 	"use strict";
 
-	// grunt.initConfig({});
 	grunt.config("pkg", grunt.file.readJSON("package.json"));
 
 	/*
-	 * Sass: Using Compass compiler (requires gem)
+	 * Sass: Compass (requires compass gem)
 	 */
 	grunt.loadNpmTasks("grunt-contrib-compass");
 	grunt.config("compass.options", {
-		sourcemap: true,
 		outputStyle: "compressed",
 		sassDir: "assets/src/sass",
 		cssDir: "assets",
@@ -19,17 +17,23 @@ module.exports = function (grunt) {
 		javascriptsDir: "assets",
 		httpPath: "/extensions/local_overrides",
 	});
-	grunt.config("compass.styles", {});
-	// grunt.config("compass.styles.options.sassDir", "assets/src/sass");
+	grunt.config("compass.build.options", { sourcemap: true });
+	grunt.config("compass.dist.options", { sourcemap: false, force: true });
 
 	/*
 	 * CSS prefixes (-moz-, -webkit-, etc.)
 	 */
 	grunt.loadNpmTasks("grunt-autoprefixer");
-	grunt.config("autoprefixer.options.map", true);
-	grunt.config("autoprefixer.styles.files", {
-		"assets/local_overrides.css": "assets/local_overrides.css",
-		"assets/local_overrides.fields.css": "assets/local_overrides.fields.css"
+	grunt.config("autoprefixer.build", {
+		options: { map: true },
+		files: {
+			"assets/local_overrides.css": "assets/local_overrides.css",
+			"assets/local_overrides.fields.css": "assets/local_overrides.fields.css"
+		}
+	});
+	grunt.config("autoprefixer.dist", {
+		options: { map: false },
+		files: grunt.config("autoprefixer.build.files"),
 	});
 
 	/* --------------------------------
@@ -37,32 +41,27 @@ module.exports = function (grunt) {
 	 * -------------------------------- */
 
 	/*
-	 * jshint: code quality check
+	 * JSHint:
 	 */
 	grunt.loadNpmTasks("grunt-contrib-jshint");
 	grunt.config("jshint", {
-		options: {
-			jshintrc: "./.jshintrc"
-		},
-		files: [
-			"assets/src/js/**/*.js"
-		]
+		options: { jshintrc: "./.jshintrc" },
+		files: [ "assets/src/js/**/*.js" ]
 	});
 
 	/*
 	 * Uglyfy
 	 */
 	grunt.loadNpmTasks('grunt-contrib-uglify');
-	grunt.config("uglify", {
-		build: {
-			options: {
-				mangle: false,
-				sourceMap: true,
-			},
-			files: {
-				"assets/local_overrides.fields.js": ["assets/local_overrides.fields.js"]
-			}
-		},
+	grunt.config("uglify.build", {
+		options: { sourceMap: true },
+		files: {
+			"assets/local_overrides.fields.js": ["assets/local_overrides.fields.js"]
+		}
+	});
+	grunt.config("uglify.dist", {
+		options: { sourceMap: false },
+		files: grunt.config("uglify.build.files"),
 	});
 
 	/*
@@ -82,21 +81,17 @@ module.exports = function (grunt) {
 			files: ["assets/src/js/**/*.js"],
 			tasks: ["jshint", "uglify:build"]
 		},
-		"process-build": {
-			files: ["assets/*.js"],
-			tasks: [],
-			// files: ["assets/local_overrides*.js"],
-			// options: { livereload: false }
-		},
 		styles: {
 			files: ["assets/src/sass/**/*.scss"],
-			tasks: ["compass:styles", "autoprefixer:styles"]
+			tasks: ["compass:build", "autoprefixer:build"]
 		},
 	});
 
+
+	grunt.registerTask("dist", 			["compass:dist", "autoprefixer:dist", "jshint", "uglify:dist"]);
 	grunt.registerTask("buildWatch", 	["watch"]);
 	grunt.registerTask("buildScripts", 	["jshint", "uglify:build"]);
-	grunt.registerTask("buildStyles", 	["compass:styles", "autoprefixer:styles"]);
+	grunt.registerTask("buildStyles", 	["compass:build", "autoprefixer:build"]);
 	grunt.registerTask("build", 		["buildStyles", "buildScripts"]);
 	grunt.registerTask("default", 		["build"]);
 };
