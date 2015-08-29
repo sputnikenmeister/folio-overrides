@@ -52,11 +52,14 @@ module.exports = function (grunt) {
 	/*
 	 * Uglyfy
 	 */
-	grunt.loadNpmTasks('grunt-contrib-uglify');
+	grunt.loadNpmTasks("grunt-contrib-uglify");
 	grunt.config("uglify.build", {
-		options: { sourceMap: true },
+		options: {
+			sourceMap: true,
+			sourceMapIncludeSources: true
+		},
 		files: {
-			"assets/local_overrides.fields.js": ["assets/local_overrides.fields.js"]
+			"assets/local_overrides.fields.js": ["assets/src/js/**/*.js"]
 		}
 	});
 	grunt.config("uglify.dist", {
@@ -79,7 +82,7 @@ module.exports = function (grunt) {
 		},
 		"process-sources": {
 			files: ["assets/src/js/**/*.js"],
-			tasks: ["jshint", "uglify:build"]
+			tasks: ["uglify:build"]
 		},
 		styles: {
 			files: ["assets/src/sass/**/*.scss"],
@@ -90,7 +93,7 @@ module.exports = function (grunt) {
 
 	grunt.registerTask("dist", 			["compass:dist", "autoprefixer:dist", "jshint", "uglify:dist"]);
 	grunt.registerTask("buildWatch", 	["watch"]);
-	grunt.registerTask("buildScripts", 	["jshint", "uglify:build"]);
+	grunt.registerTask("buildScripts", 	["uglify:build"]);
 	grunt.registerTask("buildStyles", 	["compass:build", "autoprefixer:build"]);
 	grunt.registerTask("build", 		["buildStyles", "buildScripts"]);
 	grunt.registerTask("default", 		["build"]);

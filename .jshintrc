@@ -24,7 +24,7 @@
 	"immed": true,
 	"noarg": true,
 	"onevar": true,
-	"quotmark": "single",
+	"quotmark": "double",
 	"smarttabs": false,
 	"trailing": false,
 	"undef": true,
