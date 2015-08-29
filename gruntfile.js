@@ -15,7 +15,7 @@ module.exports = function (grunt) {
 		imagesDir: "assets",
 		fontsDir: "assets",
 		javascriptsDir: "assets",
-		httpPath: "/extensions/local_overrides",
+		httpPath: "/extensions/folio_overrides",
 	});
 	grunt.config("compass.build.options", { sourcemap: true });
 	grunt.config("compass.dist.options", { sourcemap: false, force: true });
@@ -27,8 +27,8 @@ module.exports = function (grunt) {
 	grunt.config("autoprefixer.build", {
 		options: { map: true },
 		files: {
-			"assets/local_overrides.css": "assets/local_overrides.css",
-			"assets/local_overrides.fields.css": "assets/local_overrides.fields.css"
+			"assets/folio_overrides.css": "assets/folio_overrides.css",
+			"assets/folio_overrides.fields.css": "assets/folio_overrides.fields.css"
 		}
 	});
 	grunt.config("autoprefixer.dist", {
@@ -59,7 +59,7 @@ module.exports = function (grunt) {
 			sourceMapIncludeSources: true
 		},
 		files: {
-			"assets/local_overrides.fields.js": ["assets/src/js/**/*.js"]
+			"assets/folio_overrides.fields.js": ["assets/src/js/**/*.js"]
 		}
 	});
 	grunt.config("uglify.dist", {

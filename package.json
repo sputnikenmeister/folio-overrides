@@ -1,5 +1,5 @@
 {
-  "name": "folio-local_overrides",
+  "name": "folio_overrides",
   "version": "0.1.0",
   "private": true,
   "devDependencies": {

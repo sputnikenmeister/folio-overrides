@@ -1,5 +1,5 @@
 <?php
-Class extension_local_overrides extends Extension
+Class extension_folio_overrides extends Extension
 {
 	/*-------------------------------------------------------------------------
 	 Extension definition
@@ -28,9 +28,9 @@ Class extension_local_overrides extends Extension
         $callback = Symphony::Engine()->getPageCallback();
 
 		if( $callback['context']['page'] == 'edit' ) {
-            Administration::instance()->Page->addScriptToHead(URL . '/extensions/local_overrides/assets/local_overrides.fields.js');
-            Administration::instance()->Page->addStylesheetToHead(URL . '/extensions/local_overrides/assets/local_overrides.fields.css');
+            Administration::instance()->Page->addScriptToHead(URL . '/extensions/folio_overrides/assets/folio_overrides.fields.js');
+            Administration::instance()->Page->addStylesheetToHead(URL . '/extensions/folio_overrides/assets/folio_overrides.fields.css');
         }
-        Administration::instance()->Page->addStylesheetToHead(URL . '/extensions/local_overrides/assets/local_overrides.css');
+        Administration::instance()->Page->addStylesheetToHead(URL . '/extensions/folio_overrides/assets/folio_overrides.css');
 	}
 }
