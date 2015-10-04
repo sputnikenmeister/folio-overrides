@@ -1,7 +1,7 @@
 (function($, Symphony) {
 	"use strict";
 	
-	function initializeTagLists(){
+	var initializeTagLists = function() {
 		var fields, submit;
 		
 		var init = function() {
@@ -15,30 +15,40 @@
 			// 	});
 			// });
 		};
-		var buildField = function() {
-			var field, $hidden, hidden, $display, display;
+		
+		var buildField = function(index, field) {
+			console.log("[folio_overrides] initializeTagList > buildField");
+			var hidden, display;
 			
-			console.log("create textarea", arguments);
+			// var $hidden, $display, $field;
+			// $field = $(field);
+			// $field.addClass("local-taglist");
+			// 
+			// $hidden = $field.find("input[type=\"text\"]");
+			// $hidden.attr("type", "hidden");
+			// hidden = $hidden[0];
 			
-			field = $(this);
-			field.addClass("local-taglist");
-			
-			$hidden = field.find("input[type=\"text\"]");
-			$hidden.attr("type", "hidden");
-			hidden = $hidden[0];
-			
-			display = document.createElement("textarea");
-			display.setAttribute("cols", 50);
-			display.setAttribute("rows", 5);
-			$display = $(display);
-			$display.appendTo($(this).find("label"));
+			// $display = $(display);
+			// $display.attr("cols", 50);
+			// $display.attr("rows", 5);
+			// $display.appendTo($field.find("label"));
 			// display = $display[0];
 			
-			$hidden.on("change", function(ev) {
+			field.className += " local-taglist";
+			
+			hidden = field.querySelector("input[type=\"text\"]");
+			hidden.setAttribute("type", "hidden");
+			
+			display = document.createElement("textarea");
+			display.cols = 50;
+			display.rows = 5;
+			hidden.parentElement.appendChild(display);
+			
+			$(hidden).on("change", function(ev) {
 				ev.isDefaultPrevented() && ev.preventDefault();
 				display.value = invert(hidden.value);
 			});
-			$display.on("change", function(ev) {
+			$(display).on("change", function(ev) {
 				ev.isDefaultPrevented() && ev.preventDefault();
 				hidden.value = invert(formatTags(display.value));
 			});
@@ -55,9 +65,9 @@
 		};
 		
 		init();
-	}
+	};
 	
-	function initializeSelectBoxLinks() {
+	var initializeSelectBoxLinks = function() {
 		var fields;
 		
 		var init = function() {
@@ -65,13 +75,13 @@
 			fields.each(buildField);
 		};
 		
-		var buildField = function() {
-			var field, $hidden, hidden, $display, display;
+		var buildField = function(index, field) {
+			var $field, $hidden, hidden, $display, display;
 			
-			field = $(this);
-			field.addClass("local-sbl");
+			$field = $(field);
+			$field.addClass("local-sbl");
 			
-			$hidden = field.find("select:visible, input:visible");
+			$hidden = $field.find("select:visible, input:visible");
 			// hidden = $hidden.first();
 			if ($hidden.length) {
 				$hidden.selectize({
@@ -107,7 +117,7 @@
 		};
 		
 		init();
-	}
+	};
 
 	$(document).on("ready", function() {
 		initializeTagLists();

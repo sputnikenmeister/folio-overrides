@@ -1,69 +1,87 @@
 // Color palette
 // -------------------------------- //
 
-	$focus-color: #5273c0;//hsl(221,46%,53%);
-	$focus-background-color: #e9effc;
+$focus-color: #5273c0;//hsl(221,46%,53%);
+$focus-background-color: #e9effc;
 
 // Imports
 // -------------------------------- //
 
-	// @import "_folio_overrides.field-association";
+// @import "_folio_overrides.field-association";
 
 // Form Controls
 // -------------------------------- //
 
-	// select[multiple],
-	// input[type="text"],
-	// input[size],
-	// textarea {
-	// 	border:	1px solid hsla(0, 0%, 50%, 0.6);
-	// 	-webkit-border-radius: 3px;
-	// 	   -moz-border-radius: 3px;
-	// 	        border-radius: 3px;
-	// }
-	// label > select[multiple],
-	// label > input[type="text"],
-	// label > input[size],
-	// label > textarea {
-	//     -webkit-box-shadow: 0.05em 0.1em 0.2em hsla(0, 0%, 0%, 0.08) inset;
-	//        -moz-box-shadow: 0.05em 0.1em 0.2em hsla(0, 0%, 0%, 0.08) inset;
-	//             box-shadow: 0.05em 0.1em 0.2em hsla(0, 0%, 0%, 0.08) inset;
-	// }
+// select[multiple],
+// input[type="text"],
+// input[size],
+// textarea {
+// 	border:	1px solid hsla(0, 0%, 50%, 0.6);
+// 	-webkit-border-radius: 3px;
+// 	   -moz-border-radius: 3px;
+// 	        border-radius: 3px;
+// }
+// label > select[multiple],
+// label > input[type="text"],
+// label > input[size],
+// label > textarea {
+//     -webkit-box-shadow: 0.05em 0.1em 0.2em hsla(0, 0%, 0%, 0.08) inset;
+//        -moz-box-shadow: 0.05em 0.1em 0.2em hsla(0, 0%, 0%, 0.08) inset;
+//             box-shadow: 0.05em 0.1em 0.2em hsla(0, 0%, 0%, 0.08) inset;
+// }
 
-	// label > input[type="text"],
-	// label > input[size],
-	// label > textarea {
-	//     padding: 0.4em;
-	// }
-	// label > input[type="checkbox"] {
-	// 	top: auto;
-	// }
-	// select[multiple],
-	// label > select[multiple] {
-	// 	padding: 0;
-	// }
-	// select[multiple] option,
-	// label > select[multiple] option {
-	// 	padding: 0.05em 0.4em;
-	// }
-	// select[multiple] {
-	// 	height: 15rem;
-	// 	overflow-y: scroll !important;
-	// 	overflow: -moz-scrollbars-vertical !important;
-	// }
+// label > input[type="text"],
+// label > input[size],
+// label > textarea {
+//     padding: 0.4em;
+// }
+// label > input[type="checkbox"] {
+// 	top: auto;
+// }
+// select[multiple],
+// label > select[multiple] {
+// 	padding: 0;
+// }
+// select[multiple] option,
+// label > select[multiple] option {
+// 	padding: 0.05em 0.4em;
+// }
+// select[multiple] {
+// 	height: 15rem;
+// 	overflow-y: scroll !important;
+// 	overflow: -moz-scrollbars-vertical !important;
+// }
 
-	/* focus: text inputs */
-	.field-date select:focus,
-	.field-textarea textarea:focus,
-	.field label > input[type="text"]:focus {
-		border-color: $focus-color;
-	}
-	::selection {
-		color: $focus-color;
-		background-color: $focus-background-color;
-	}
-	::-moz-selection {
-		color: $focus-color;
-		background-color: $focus-background-color;
-	}
+/* focus: text inputs */
+.field-date select:focus,
+.field-textarea textarea:focus,
+.field label > input[type="text"]:focus {
+	border-color: $focus-color;
+}
+::selection {
+	color: $focus-color;
+	background-color: $focus-background-color;
+}
+::-moz-selection {
+	color: $focus-color;
+	background-color: $focus-background-color;
+}
 
+// -----------------------------------
+// extensions/image_index_preview
+// -----------------------------------
+td.field-upload img {
+	vertical-align: text-top;
+	box-shadow: 0px 2px 3px -1px rgba(0, 0, 0, 0.75);
+}
+
+.unpublishedfilter-draft td.field-upload img {
+	box-shadow: none;
+	opacity: 0.5;
+}
+
+.field-upload .frame img {
+	margin-left: 2px;
+	margin-right: 2px;
+	box-shadow: 0px 2px 3px -2px rgba(0, 0, 0, 0.75);
+}

@@ -46,20 +46,22 @@ module.exports = function (grunt) {
 	grunt.loadNpmTasks("grunt-contrib-jshint");
 	grunt.config("jshint", {
 		options: { jshintrc: "./.jshintrc" },
-		files: [ "assets/src/js/**/*.js" ]
+		files: [ "./assets/src/js/**/*.js" ]
 	});
 
 	/*
-	 * Uglyfy
+	 * Uglify
 	 */
 	grunt.loadNpmTasks("grunt-contrib-uglify");
 	grunt.config("uglify.build", {
 		options: {
+			mangle: false,
 			sourceMap: true,
-			sourceMapIncludeSources: true
+			sourceMapIncludeSources: true,
+			sourceMapRoot: "./assets/src/js"
 		},
 		files: {
-			"assets/folio_overrides.fields.js": ["assets/src/js/**/*.js"]
+			"./assets/folio_overrides.fields.js": ["./assets/src/js/**/*.js"]
 		}
 	});
 	grunt.config("uglify.dist", {
@@ -73,9 +75,9 @@ module.exports = function (grunt) {
 	grunt.loadNpmTasks("grunt-contrib-watch"); // Workflow
 	grunt.config("watch", {
 		options: {
-			livereload: false,
 			spawn: false,
-			forever: true
+			forever: true,
+			livereload: false
 		},
 		"reload-config": {
 			files: ["gruntfile.js"],
