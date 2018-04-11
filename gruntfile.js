@@ -1,5 +1,5 @@
 /*global module*/
-module.exports = function (grunt) {
+module.exports = function(grunt) {
 	"use strict";
 
 	grunt.config("pkg", grunt.file.readJSON("package.json"));
@@ -46,7 +46,7 @@ module.exports = function (grunt) {
 	grunt.loadNpmTasks("grunt-contrib-jshint");
 	grunt.config("jshint", {
 		options: { jshintrc: "./.jshintrc" },
-		files: [ "./assets/src/js/**/*.js" ]
+		files: ["./assets/src/js/**/*.js"]
 	});
 
 	/*
@@ -93,10 +93,10 @@ module.exports = function (grunt) {
 	});
 
 
-	grunt.registerTask("dist", 			["compass:dist", "autoprefixer:dist", "jshint", "uglify:dist"]);
-	grunt.registerTask("buildWatch", 	["watch"]);
-	grunt.registerTask("buildScripts", 	["uglify:build"]);
-	grunt.registerTask("buildStyles", 	["compass:build", "autoprefixer:build"]);
-	grunt.registerTask("build", 		["buildStyles", "buildScripts"]);
-	grunt.registerTask("default", 		["build"]);
+	grunt.registerTask("dist", ["compass:dist", "autoprefixer:dist", "jshint", "uglify:dist"]);
+	grunt.registerTask("buildWatch", ["watch"]);
+	grunt.registerTask("buildScripts", ["uglify:build"]);
+	grunt.registerTask("buildStyles", ["compass:build", "autoprefixer:build"]);
+	grunt.registerTask("build", ["buildStyles", "buildScripts"]);
+	grunt.registerTask("default", ["build", "buildWatch"]);
 };
