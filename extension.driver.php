@@ -25,12 +25,24 @@ Class extension_folio_overrides extends Extension
 	 */
 	public function appendAssets($context)
 	{
-        $callback = Symphony::Engine()->getPageCallback();
+        // $callback = Symphony::Engine()->getPageCallback();
+		$page = Administration::instance()->Page;
+		$assetsUrl = URL . '/extensions/folio_overrides/assets/';
 
-		if( $callback['context']['page'] == 'edit' ) {
-            Administration::instance()->Page->addScriptToHead(URL . '/extensions/folio_overrides/assets/folio_overrides.fields.js');
-            Administration::instance()->Page->addStylesheetToHead(URL . '/extensions/folio_overrides/assets/folio_overrides.fields.css');
+		if( Symphony::Engine()->getPageCallback()['context']['page'] == 'edit' ) {
+            $page->addScriptToHead($assetsUrl . 'folio_overrides.fields.js');
+            $page->addStylesheetToHead($assetsUrl . 'folio_overrides.fields.css');
         }
-        Administration::instance()->Page->addStylesheetToHead(URL . '/extensions/folio_overrides/assets/folio_overrides.css');
+        $page->addStylesheetToHead($assetsUrl . 'folio_overrides.css');
+
+		// <link rel="icon" type="image/png" sizes="64x64" href="http://localhost/projects/folio-sym/workspace/assets/images/favicons/circle/favicon.png">
+        $link = new XMLElement('link');
+        $link->setAttributeArray(array('rel' => 'icon', 'type' => 'image/png', 'sizes' => '64x64', 'href' => $assetsUrl . 'favicon.png'));
+        $page->addElementToHead($link);
+
+		// <link rel="shortcut icon" href="http://localhost/projects/folio-sym/workspace/assets/images/favicons/circle/favicon.ico">
+        $link = new XMLElement('link');
+        $link->setAttributeArray(array('rel' => 'shortcut icon', 'href' => $assetsUrl . 'favicon.ico'));
+        $page->addElementToHead($link);
 	}
 }
