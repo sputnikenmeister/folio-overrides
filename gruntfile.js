@@ -94,9 +94,9 @@ module.exports = function(grunt) {
 
 
 	grunt.registerTask("dist", ["compass:dist", "autoprefixer:dist", "jshint", "uglify:dist"]);
-	grunt.registerTask("buildWatch", ["watch"]);
 	grunt.registerTask("buildScripts", ["uglify:build"]);
 	grunt.registerTask("buildStyles", ["compass:build", "autoprefixer:build"]);
 	grunt.registerTask("build", ["buildStyles", "buildScripts"]);
-	grunt.registerTask("default", ["build", "buildWatch"]);
+	// grunt.registerTask("buildWatch", ["watch"]);
+	grunt.registerTask("default", ["build"]); //, "buildWatch"]);
 };

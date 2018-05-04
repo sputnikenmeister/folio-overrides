@@ -1,7 +1,37 @@
+// -----------------------------------
+// Imports
+// -----------------------------------
+
+@import "colors";
+
+// -----------------------------------
+// form buttons
+// -----------------------------------
+
+%highlight {
+	/* hsl(215, 41%, 50%) */
+	color: hsl(215, 41%, 95%); //hsla(0, 0%, 33%, 0.95);
+	border: 0.1rem solid hsla(215, 70%, 20%, 0.25);
+	background-image: linear-gradient(to bottom, hsl(215, 100%, 70%) 0%, hsl(215, 70%, 40%) 100%);
+}
+// a,
+// button,
+// input {
+// 	&.keyfocused,
+// 	.keyfocused & {
+// 		@extend %highlight;
+// 	}
+// }
+.keyfocused {
+	border-radius: 0.4rem;
+	box-shadow: 0 0 0 3px hsl(215, 100%, 70%); //$focus-color;
+}
+// .actions input[name=action\[save\]] { @extend %highlight; }
 
 // -----------------------------------
 // taglists used as attributes
 // -----------------------------------
+
 #field-25,
 #field-33,
 #field-39,
@@ -37,7 +67,6 @@
 /**
  * Association UI: Selector
  */
-
 .local-sbl .selectize-control {
 	position: relative;
 	-moz-box-sizing: border-box;
