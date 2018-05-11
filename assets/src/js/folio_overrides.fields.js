@@ -85,7 +85,7 @@
 					hideSelected: true,
 					plugins: {
 						"remove_button": {
-							label: "Remove",
+							label: "×",
 							title: "Remove",
 							className: "destructor"
 						}
@@ -122,12 +122,8 @@
 		document.addEventListener('keydown', function(event) {}, false);
 
 		var keydownHandler = function(event) {
-			// if (keyName === 'Control' || keyName === 'Meta' || keyName === 'Shift') {
-			// 	return; // do not alert when only Control key is pressed.
-			// }
 			var keyName = event.key;
-
-			debugHandler(event);
+			// debugHandler(event);
 			if ((event.ctrlKey || event.metaKey) && event.shiftKey) {
 				[saveEl, navEl].forEach(function(el) {
 					el.classList.add("keyfocused");
@@ -142,7 +138,7 @@
 			}
 		};
 		var keyupHandler = function(event) {
-			debugHandler(event);
+			// debugHandler(event);
 			if (!((event.ctrlKey || event.metaKey) && event.shiftKey)) {
 				[saveEl, navEl].forEach(function(el) {
 					el.classList.remove("keyfocused");
@@ -154,27 +150,24 @@
 		document.addEventListener('keyup', keyupHandler, false);
 
 		// DEBUG
-		var debugHandler = function(event) {
-			if (event.ctrlKey || event.metaKey || event.shiftKey) {
-				var keys = [],
-					keyName = event.key;
-				// keyName !== 'Control' &&
-				event.ctrlKey && keys.push("Ctrl");
-				// keyName !== 'Meta' &&
-				event.metaKey && keys.push("Meta");
-				// keyName !== 'Shift' &&
-				event.shiftKey && keys.push("Shift");
-				// keys.push(keyName);
-				console.log("[%s] [%s]+[%s]", event.type, keys.join("+"), keyName);
-			}
-		};
-		console.log("[folio_overrides] initKeyboardShortcuts", saveEl, prevEl, nextEl);
+		// var debugHandler = function(event) {
+		// 	if (event.ctrlKey || event.metaKey || event.shiftKey) {
+		// 		var keys = [],
+		// 			keyName = event.key;
+		// 		event.ctrlKey && keys.push("Ctrl");
+		// 		event.metaKey && keys.push("Meta");
+		// 		event.shiftKey && keys.push("Shift");
+		// 		console.log("[%s] [%s]+[%s]", event.type, keys.join("+"), keyName);
+		// 	}
+		// };
+		// console.log("[folio_overrides] initKeyboardShortcuts", saveEl, prevEl, nextEl);
 		// document.addEventListener('keydown', debugHandler, false);
 	};
 
 	$(document).on("ready", function() {
+		var isIOS = /iPad|iPhone/.test(window.navigator.userAgent);
 		initializeTagLists();
-		initializeSelectBoxLinks();
+		!isIOS && initializeSelectBoxLinks();
 		initKeyboardShortcuts();
 	});
 

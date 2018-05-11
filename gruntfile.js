@@ -40,14 +40,14 @@ module.exports = function(grunt) {
 	 * Javascript
 	 * -------------------------------- */
 
-	/*
-	 * JSHint:
-	 */
-	grunt.loadNpmTasks("grunt-contrib-jshint");
-	grunt.config("jshint", {
-		options: { jshintrc: "./.jshintrc" },
-		files: ["./assets/src/js/**/*.js"]
-	});
+	// /*
+	//  * JSHint:
+	//  */
+	// grunt.loadNpmTasks("grunt-contrib-jshint");
+	// grunt.config("jshint", {
+	// 	options: { jshintrc: "./.jshintrc" },
+	// 	files: ["./assets/src/js/**/*.js"]
+	// });
 
 	/*
 	 * Uglify
@@ -93,10 +93,10 @@ module.exports = function(grunt) {
 	});
 
 
-	grunt.registerTask("dist", ["compass:dist", "autoprefixer:dist", "jshint", "uglify:dist"]);
+	grunt.registerTask("dist", ["compass:dist", "autoprefixer:dist", /* "jshint",*/ "uglify:dist"]);
 	grunt.registerTask("buildScripts", ["uglify:build"]);
 	grunt.registerTask("buildStyles", ["compass:build", "autoprefixer:build"]);
 	grunt.registerTask("build", ["buildStyles", "buildScripts"]);
 	// grunt.registerTask("buildWatch", ["watch"]);
-	grunt.registerTask("default", ["build"]); //, "buildWatch"]);
+	grunt.registerTask("default", ["dist"]); //, "buildWatch"]);
 };

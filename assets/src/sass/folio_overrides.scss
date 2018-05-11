@@ -9,6 +9,24 @@
 // Form Controls
 // -------------------------------- //
 
+.page-single,
+.single {
+	#contents .actions,
+	#contents .columns .actions {
+		background-color: white;
+		position: fixed;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		padding: 1.75rem 0;
+		margin: 0 1.8rem;
+		// width: calc(100% - 3.6rem);
+	}
+	.drawer-vertical-right #contents .columns .actions {
+		right: 301px;
+	}
+}
+
 // select[multiple],
 // input[type="text"],
 // input[size],
