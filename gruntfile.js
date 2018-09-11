@@ -118,9 +118,9 @@ module.exports = function(grunt) {
 	 * - - - - - - - - - - - - - - - - - */
 	var favTasks = ['clean:favicons'];
 	var favicons = {
-		black: { filename: 'profile-abstract2-black.png', color: '#000000', },
-		white: { filename: 'profile-abstract2-white.png', color: '#FFFFFF', },
-		prtfl: { filename: 'prtfl.png', color: '#D0021B', },
+// 		black: { filename: 'profile-abstract2-black.png', color: '#000000', },
+// 		white: { filename: 'profile-abstract2-white.png', color: '#FFFFFF', },
+// 		prtfl: { filename: 'prtfl.png', color: '#D0021B', },
 		cog: { filename: 'cog.png', color: '#000000', },
 	};
 	// sizes = [16, 32, 48, 64, 128, 256, 512];
@@ -247,7 +247,8 @@ module.exports = function(grunt) {
 	});
 
 
-	grunt.registerTask('buildResources', ['build-favicons']);
+// 	grunt.registerTask('buildResources', ['build-favicons']);
+	grunt.registerTask('buildResources', ['build-favicons_cog']);
 	grunt.registerTask('dist', ['compass:dist', 'autoprefixer:dist', /* 'jshint',*/ 'uglify:dist', 'buildResources']);
 	grunt.registerTask('buildScripts', ['uglify:build']);
 	grunt.registerTask('buildStyles', ['compass:build', 'autoprefixer:build']);
